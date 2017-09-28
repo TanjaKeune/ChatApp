@@ -22,6 +22,7 @@ class ChatViewController: UIViewController {
         super.viewDidLoad()
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Log Out", style: .plain, target: self, action: #selector(logOut))
+        self.navigationItem.setHidesBackButton(true, animated: false)
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,11 +42,16 @@ class ChatViewController: UIViewController {
     //TODO: Create the retrieveMessages method here:
     
     @objc func logOut(){
-        print("Log out pressed")
+        
         do {
             try FIRAuth.auth()?.signOut()
         } catch {
             print("error signing out")
+        }
+        guard (navigationController?.popToRootViewController(animated: true)) !=  nil
+            else {
+                print("No View Controllers to pop off")
+                return
         }
     }
     

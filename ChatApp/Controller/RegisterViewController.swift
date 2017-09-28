@@ -16,8 +16,9 @@ class RegisterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.setHidesBackButton(true, animated: false)
 
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,7 +41,6 @@ class RegisterViewController: UIViewController {
                         self.alertMessage(title: errorPrint, message: "Try again")
                     } else {
 //                        success
-//                        self.alertMessage(title: "User is registerd", message: "")
                         self.performSegue(withIdentifier: "goToChat", sender: self)
                     }
                 })

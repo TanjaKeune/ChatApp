@@ -16,8 +16,8 @@ class LogInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        self.navigationItem.setHidesBackButton(true, animated: false)
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,6 +28,8 @@ class LogInViewController: UIViewController {
     
     @IBAction func logInPressed(_ sender: AnyObject) {
         //TODO: Log in the user
+        
+//        check for email enterd and password
         
         if let email = emailTextfield.text {
             if let password = passwordTextfield.text {

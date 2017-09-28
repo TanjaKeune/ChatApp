@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class WelcomeViewController: UIViewController {
 
@@ -14,6 +15,10 @@ class WelcomeViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        if FIRAuth.auth()?.currentUser != nil {
+            performSegue(withIdentifier: "goToChat", sender: self)
+        }
     }
 
     override func didReceiveMemoryWarning() {
