@@ -17,6 +17,9 @@
 		9BE093B31F7D40CF008AC70A /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE093B21F7D40CF008AC70A /* WelcomeViewController.swift */; };
 		9BE093B51F7D40DB008AC70A /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE093B41F7D40DB008AC70A /* LogInViewController.swift */; };
 		9BE093B71F7D41B4008AC70A /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE093B61F7D41B4008AC70A /* ChatViewController.swift */; };
+		9BE5DD501F7DC48E00667651 /* CustomMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE5DD4E1F7DC48E00667651 /* CustomMessageCell.swift */; };
+		9BE5DD511F7DC48E00667651 /* CustomMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BE5DD4F1F7DC48E00667651 /* CustomMessageCell.xib */; };
+		9BE5DD541F7E82A700667651 /* message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE5DD531F7E82A700667651 /* message.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +36,9 @@
 		9BE093B21F7D40CF008AC70A /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		9BE093B41F7D40DB008AC70A /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		9BE093B61F7D41B4008AC70A /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		9BE5DD4E1F7DC48E00667651 /* CustomMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMessageCell.swift; sourceTree = "<group>"; };
+		9BE5DD4F1F7DC48E00667651 /* CustomMessageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomMessageCell.xib; sourceTree = "<group>"; };
+		9BE5DD531F7E82A700667651 /* message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = message.swift; sourceTree = "<group>"; };
 		D037104C1A7881785DDD9795 /* Pods-ChatApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChatApp/Pods-ChatApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -79,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				9BE0939C1F7D34B1008AC70A /* AppDelegate.swift */,
+				9BE5DD521F7E829400667651 /* Model */,
 				9BE093AE1F7D34E2008AC70A /* GoogleService-Info.plist */,
 				9BE093B81F7D41C9008AC70A /* Controller */,
 				9BE093A01F7D34B1008AC70A /* Main.storyboard */,
@@ -96,8 +103,26 @@
 				9BE093B21F7D40CF008AC70A /* WelcomeViewController.swift */,
 				9BE093B41F7D40DB008AC70A /* LogInViewController.swift */,
 				9BE093B61F7D41B4008AC70A /* ChatViewController.swift */,
+				9BE5DD491F7DC14600667651 /* Custom Cell */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		9BE5DD491F7DC14600667651 /* Custom Cell */ = {
+			isa = PBXGroup;
+			children = (
+				9BE5DD4E1F7DC48E00667651 /* CustomMessageCell.swift */,
+				9BE5DD4F1F7DC48E00667651 /* CustomMessageCell.xib */,
+			);
+			path = "Custom Cell";
+			sourceTree = "<group>";
+		};
+		9BE5DD521F7E829400667651 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9BE5DD531F7E82A700667651 /* message.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		B8B2D2CD48E5230F5FA437C1 /* Frameworks */ = {
@@ -173,6 +198,7 @@
 				9BE093A71F7D34B1008AC70A /* LaunchScreen.storyboard in Resources */,
 				9BE093AF1F7D372C008AC70A /* GoogleService-Info.plist in Resources */,
 				9BE093A41F7D34B1008AC70A /* Assets.xcassets in Resources */,
+				9BE5DD511F7DC48E00667651 /* CustomMessageCell.xib in Resources */,
 				9BE093A21F7D34B1008AC70A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -244,6 +270,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BE5DD541F7E82A700667651 /* message.swift in Sources */,
+				9BE5DD501F7DC48E00667651 /* CustomMessageCell.swift in Sources */,
 				9BE093B11F7D40C4008AC70A /* RegisterViewController.swift in Sources */,
 				9BE093B31F7D40CF008AC70A /* WelcomeViewController.swift in Sources */,
 				9BE093B51F7D40DB008AC70A /* LogInViewController.swift in Sources */,

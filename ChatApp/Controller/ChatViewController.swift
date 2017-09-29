@@ -9,11 +9,14 @@
 import UIKit
 import Firebase
 
-class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate{
 
     
     // We've pre-linked the IBOutlets
 //    @IBOutlet var heightConstraint: NSLayoutConstraint!
+
+
+    @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     @IBOutlet var sendButton: UIButton!
     @IBOutlet var messageTextfield: UITextField!
     @IBOutlet weak var tableView: UITableView!
@@ -27,6 +30,14 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.delegate = self
         tableView.dataSource = self
         
+        messageTextfield.delegate = self
+        
+        tableView.register(UINib(nibName: "CustomMessageCell", bundle: nil), forCellReuseIdentifier: "customMessageCell")
+
+        configureTableView()
+
+        tableView.reloadData()
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,13 +47,37 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell:UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = "Test"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "customMessageCell", for: indexPath) as! CustomMessageCell
+        let messageArray = ["First message", "Second Message", "Third Message"]
+        cell.messageBackground.layer.cornerRadius = 20
+        
+        cell.messageBody.text = messageArray[indexPath.row]
+        cell.avatarImageView.image = UIImage(named: "avatar")
         return cell
     }
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        
+        UIView.animate(withDuration: 0.5) {
+            self.heightConstraint.constant = 323
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        UIView.animate(withDuration: 0.5) {
+            self.heightConstraint.constant = 65
+            self.view.layoutIfNeeded()
+        }
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 3
+    }
+
+    func configureTableView() {
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = 120.0
+//        tableView.estimatedRowHeight = 120.0
     }
 
     @IBAction func sendPressed(_ sender: AnyObject) {
