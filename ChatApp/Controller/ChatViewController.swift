@@ -8,12 +8,9 @@
 
 import UIKit
 import Firebase
+import ChameleonFramework
 
 class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate{
-
-    
-    // We've pre-linked the IBOutlets
-//    @IBOutlet var heightConstraint: NSLayoutConstraint!
 
     var messageArray : [Message] = [Message]()
 
@@ -42,7 +39,7 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
 //        tableView.reloadData()
         retrieveMessages()
-
+        tableView.separatorStyle = .none
     }
     
     @objc func tableViewTapped() {
@@ -62,7 +59,17 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         cell.messageBody.text = messageArray[indexPath.row].messageBody
         cell.senderUsername.text = messageArray[indexPath.row].sender
-        cell.avatarImageView.image = UIImage(named: "avatar2")
+        
+        if cell.senderUsername.text == FIRAuth.auth()?.currentUser?.email as String! {
+            cell.avatarImageView.backgroundColor = UIColor.flatMint()
+            cell.messageBackground.backgroundColor = UIColor.flatSkyBlue()
+            cell.avatarImageView.image = UIImage(named: "avatar2")
+        } else {
+            cell.avatarImageView.backgroundColor = UIColor.flatWatermelon()
+            cell.messageBackground.backgroundColor = UIColor.flatGray()
+            cell.avatarImageView.image = UIImage(named: "avatar")
+        }
+        
         return cell
     }
     
@@ -121,8 +128,6 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
     }
     
-    //TODO: Create the retrieveMessages method here:
-    
     func retrieveMessages() {
         let messageDB = FIRDatabase.database().reference().child("Messages")
         
@@ -156,13 +161,4 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
     
-
-//    @IBAction func logOutPressed(_ sender: AnyObject) {
-//
-//        //TODO: Log out the user and send them back to WelcomeViewController
-//
-//
-//    }
-    
-
 }

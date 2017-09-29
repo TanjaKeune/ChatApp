@@ -8,12 +8,13 @@
 
 import UIKit
 import Firebase
+import SVProgressHUD
 
 class LogInViewController: UIViewController {
 
     @IBOutlet var emailTextfield: UITextField!
     @IBOutlet var passwordTextfield: UITextField!
-    
+    @IBOutlet weak var loginButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,8 +28,9 @@ class LogInViewController: UIViewController {
     
     
     @IBAction func logInPressed(_ sender: AnyObject) {
-        //TODO: Log in the user
-        
+
+        SVProgressHUD.show()
+        disableUI()
 //        check for email enterd and password
         
         if let email = emailTextfield.text {
@@ -37,14 +39,29 @@ class LogInViewController: UIViewController {
                 FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
                     
                     if error != nil {
-                        
+                        self.enableUI()
                         print(error)
                     } else {
+                        SVProgressHUD.dismiss()
+                        self.enableUI()
                         self.performSegue(withIdentifier: "goToChat", sender: self)
                     }
                 })
             }
         }
         
+    }
+    
+    func disableUI()
+    {
+        emailTextfield.isEnabled = false
+        passwordTextfield.isEnabled = false
+        loginButton.isEnabled = false
+    }
+    func enableUI()
+    {
+        emailTextfield.isEnabled = true
+        passwordTextfield.isEnabled = true
+        loginButton.isEnabled = true
     }
 }

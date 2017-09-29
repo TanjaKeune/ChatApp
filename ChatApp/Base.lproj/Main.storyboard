@@ -131,6 +131,7 @@
                     <connections>
                         <outlet property="emailTextfield" destination="MdA-u2-Blw" id="DgQ-S2-NM9"/>
                         <outlet property="passwordTextfield" destination="gxL-an-eh5" id="3jx-rg-Ia0"/>
+                        <outlet property="registerButton" destination="hHd-ZP-gqo" id="Oqo-GX-5iu"/>
                         <segue destination="rQY-m2-pqH" kind="show" identifier="goToChat" id="8yn-s5-3Dc"/>
                     </connections>
                 </viewController>
@@ -193,6 +194,7 @@
                     </view>
                     <connections>
                         <outlet property="emailTextfield" destination="3iB-Lj-0Uq" id="JTc-Ut-XUP"/>
+                        <outlet property="loginButton" destination="f4b-YN-ugT" id="TZZ-H7-fqY"/>
                         <outlet property="passwordTextfield" destination="ArO-jU-2E5" id="yZ3-pM-Huf"/>
                         <segue destination="rQY-m2-pqH" kind="show" identifier="goToChat" id="nsk-YM-UGa"/>
                     </connections>
@@ -306,6 +308,6 @@
         <image name="bg" width="1250" height="1250"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="wOk-K0-3gY"/>
+        <segue reference="8yn-s5-3Dc"/>
     </inferredMetricsTieBreakers>
 </document>
