@@ -20,11 +20,11 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="80.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ROR-1b-AFL">
-                        <rect key="frame" x="13" y="14" width="53" height="53"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ROR-1b-AFL">
+                        <rect key="frame" x="13" y="13.5" width="53" height="53"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="53" id="ewt-N0-Aoy"/>
-                            <constraint firstAttribute="width" constant="53" id="mva-wh-334"/>
+                            <constraint firstAttribute="height" constant="53" id="XX9-YS-c36"/>
+                            <constraint firstAttribute="width" constant="53" id="em4-Ho-2Vi"/>
                         </constraints>
                     </imageView>
                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CCJ-3l-c9c">
@@ -50,8 +50,8 @@
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="ROR-1b-AFL" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="9jm-2g-hob"/>
-                    <constraint firstItem="ROR-1b-AFL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="nWl-pH-1MR"/>
+                    <constraint firstItem="ROR-1b-AFL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="9GU-cV-RWN"/>
+                    <constraint firstItem="ROR-1b-AFL" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="eoL-HI-dSu"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
